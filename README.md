@@ -1,16 +1,10 @@
 # alertadefesacivil
 
-A new Flutter application.
+Plataforma para Defesa Civil
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A prefeitura de uma determinada cidade deseja melhorar seu sistema de comunicação e gestão quando na
+ocorrência de incidentes como desastres ou catástrofes ambientais, enchentes, emergências, etc. Para isso
+decidiu investir em uma plataforma para Defesa Cívil municipal, que possibilite o monitoramento de riscos e
+atuação sobre incidentes naturais ou não, a partir da gestão de ordem de serviços para agentes públicos e
+privados (ex. CEMIG, bombeiros, polícia, SAMU, etc). O sistema também deverá enviar mensagens para os
+cidadãos cadastrados via APP sobre alertas, educativas e institucional, etc.
