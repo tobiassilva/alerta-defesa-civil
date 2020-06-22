@@ -51,8 +51,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/defensoria_publica.jpg
+    - assets/images/city_pxb.jpg
     - assets/images/MDF.png
     - assets/images/Itajubá.png
+    - assets/images/defensoria_grande.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

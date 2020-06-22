@@ -32,16 +32,21 @@ class LoginWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                alignment: Alignment.center,
+                //alignment: Alignment.center,
                 width: 150.0,
                 height: 150.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/images/defensoria_publica.jpg',
+
+                ),
+                child:  ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Hero(
+                    tag: 'imgCapa',
+                    child: Image.asset(
+                      'assets/images/defensoria_grande.png',
+                      fit: BoxFit.cover,
                     ),
-                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -109,7 +114,7 @@ class LoginWidget {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                      color: StyleGlobals().textColorSecundary,
+                      color: StyleGlobals().tertiaryColor,
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(20),
                           topLeft: Radius.circular(20),
@@ -121,7 +126,7 @@ class LoginWidget {
                   margin: EdgeInsets.only(right: 7),
                   child: Icon(
                     FontAwesomeIcons.userAlt,
-                    color: StyleGlobals().primaryColor,
+                    color: StyleGlobals().secundaryColor,
                     size: 22,
                   ),
                 ),
@@ -167,7 +172,7 @@ class LoginWidget {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                      color: StyleGlobals().textColorSecundary,
+                      color: StyleGlobals().tertiaryColor,
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(20),
                           topLeft: Radius.circular(20),
@@ -179,7 +184,7 @@ class LoginWidget {
                   margin: EdgeInsets.only(right: 7),
                   child: Icon(
                     FontAwesomeIcons.lock,
-                    color: StyleGlobals().primaryColor,
+                    color: StyleGlobals().secundaryColor,
                     size: 22,
                   ),
                 ),

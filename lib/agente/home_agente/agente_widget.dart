@@ -1,4 +1,5 @@
 import 'package:alertadefesacivil/agente/criarNotificacao/criarNotificacao_page.dart';
+import 'package:alertadefesacivil/agente/login/login_page.dart';
 import 'package:alertadefesacivil/agente/verNotificacao/verNotificacao.dart';
 import 'package:alertadefesacivil/globals.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class AgenteWidget {
           children: <Widget>[
             Expanded(
               child: Image.asset(
-                'assets/images/Itajubá.png',
+                'assets/images/city_pxb.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -25,7 +26,7 @@ class AgenteWidget {
 
         Container(
           decoration: BoxDecoration(
-            color: Color.fromRGBO(0, 0, 0, 0.2)
+            color: Color.fromRGBO(0, 0, 0, 0.3)
           ),
         ),
 
@@ -42,7 +43,9 @@ class AgenteWidget {
           children: <Widget>[
             GestureDetector(
               onTap: (){
-                Navigator.pop(context);
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => LoginPage())
+                );
               },
               child: Container(
                 padding: EdgeInsets.all(18),
@@ -138,17 +141,17 @@ class AgenteWidget {
                   padding: EdgeInsets.fromLTRB(10, 9, 10, 9),
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)
+                      borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Flexible(
                           child: Text(
-                            "VER NOTIFICAÇÃO",
+                            "VER NOTIFICAÇÕES",
                             style: TextStyle(
                               fontSize: 20,
-                              color: Colors.black,
+                              color: StyleGlobals().primaryColor,
                             ),
                           ),
                       ),
@@ -173,12 +176,20 @@ class AgenteWidget {
                   padding: EdgeInsets.fromLTRB(10, 9, 10, 9),
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)
+                      borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Flexible(child: Text("NOVA NOTIFICAÇÃO", style: TextStyle(fontSize: 20, color: Colors.black, ),)),
+                      Flexible(
+                          child: Text(
+                            "NOVA NOTIFICAÇÃO",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: StyleGlobals().primaryColor,
+                            ),
+                          ),
+                      ),
                     ],
                   ),
                 ),

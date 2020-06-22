@@ -36,7 +36,7 @@ class SignUpWidget {
                     borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
                       image: AssetImage(
-                        'assets/images/defensoria_publica.jpg',
+                        'assets/images/defensoria_grande.png',
                       ),
                       fit: BoxFit.cover,
                     ),
