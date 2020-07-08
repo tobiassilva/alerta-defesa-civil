@@ -410,7 +410,7 @@ class SignUpWidget {
             height: 15,
           ),
 
-          ///NOME
+          ///CARGO
           ///
           Container(
             height: 60,
@@ -450,7 +450,7 @@ class SignUpWidget {
                               fontSize: StyleGlobals().sizeSubtitulo
                           ),
                           //keyboardType: TextInputType.,
-                          controller: loginFunctions.nome,
+                          controller: loginFunctions.cargo,
                           textAlign: TextAlign.left,
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -492,11 +492,12 @@ class SignUpWidget {
           if(loginStore.validaEmail(loginStore.criaEmail)){
             if(loginStore.criaSenha.length >= 8){
               if(loginStore.criaSenha == loginStore.confirmaSenha){
-                /*await loginFunctions.criarEmai(context).then((value){
-
+                //await loginFunctions.getNoticias();
+                await loginFunctions.criaConta().then((value){
+                  alertConfCadastro();
                 }).catchError((e){
                   loginFunctions.scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Erro ao criar conta :(')));
-                });*/
+                });
               } else {
                 loginFunctions.scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('As senhas devem ser iguais')));
               }
@@ -541,6 +542,72 @@ class SignUpWidget {
         ],
       ),
     );
+  }
+
+
+
+  void alertConfCadastro() async {
+    return showDialog<void>(
+        context: context,
+        builder: (_) {
+          // return object of type Dialog
+          return AlertDialog(
+            content: Container(
+              color: StyleGlobals().secundaryColor,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 3.8,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  /*Image.asset(
+                  "assets/images/icon_success.png",
+                  fit: BoxFit.fitWidth,
+                ),*/
+                  Icon(
+                    Icons.check_circle,
+                    color: Colors.green,
+                    size: 60,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                  ),
+                  Text(
+                    "Cadastro realizado com sucesso!",
+                    style: TextStyle(color: StyleGlobals().textColorForte),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                  ),
+                  Text(
+                    "Aguarde aprovação do Administrador. Voce poderá logar em breve...",
+                    style: TextStyle(color: StyleGlobals().textColorForte),
+                  ),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              Container(
+                decoration:
+                BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: StyleGlobals().primaryColor,
+                ),
+                width: MediaQuery.of(context).size.width,
+                child: FlatButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "OK",
+                      style: TextStyle(
+                          color: StyleGlobals().textColorSecundary,
+                          fontSize: 20),
+                    )),
+              ),
+            ],
+          );
+        });
   }
 
 

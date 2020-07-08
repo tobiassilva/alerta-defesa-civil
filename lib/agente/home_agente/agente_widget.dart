@@ -1,8 +1,11 @@
 import 'package:alertadefesacivil/agente/criarNotificacao/criarNotificacao_page.dart';
 import 'package:alertadefesacivil/agente/login/login_page.dart';
-import 'package:alertadefesacivil/agente/verNotificacao/verNotificacao.dart';
+import 'package:alertadefesacivil/agente/solicitacoes/solicitacoes_page.dart';
+import 'package:alertadefesacivil/agente/verNotificacao/verNotificacao_page.dart';
 import 'package:alertadefesacivil/globals.dart';
 import 'package:flutter/material.dart';
+
+import '../globals_agente.dart' as globalsAg;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AgenteWidget {
@@ -101,7 +104,7 @@ class AgenteWidget {
                   ),
                 ),
                 Text(
-                  'Thais Silva',
+                  '${globalsAg.nomeAg}',
                   style: TextStyle(
                     color: StyleGlobals().textColorForte,
                     fontSize: StyleGlobals().sizeTituloGrande,
@@ -194,6 +197,49 @@ class AgenteWidget {
                   ),
                 ),
               ),
+
+              !globalsAg.admin
+                  ?
+              Container()
+                  : SizedBox(
+                height: 45,
+              ),
+
+              !globalsAg.admin
+              ?
+              Container()
+              : GestureDetector(
+
+                onTap: (){
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SolicitacoesPage())
+                  );
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width/1.3,
+                  padding: EdgeInsets.fromLTRB(10, 9, 10, 9),
+                  decoration: BoxDecoration(
+                      color: StyleGlobals().primaryColor,
+                      borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Flexible(
+                          child: Text(
+                            "SOLICITAÇÕES",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: StyleGlobals().textColorSecundary,
+                            ),
+                          ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+
             ],
           ),
         ),

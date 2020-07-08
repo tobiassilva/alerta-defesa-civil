@@ -1,4 +1,5 @@
 import 'package:alertadefesacivil/agente/login/login_page.dart';
+import 'package:alertadefesacivil/agente/verNotificacao/verNotificacao_page.dart';
 import 'package:alertadefesacivil/globals.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class HomeWidget {
           tag: 'imgCapa',
           child: Image.asset(
             'assets/images/defensoria_grande.png',
-            fit: BoxFit.cover,
+            fit: BoxFit.fitHeight,
           ),
         ),
       ),
@@ -79,7 +80,9 @@ class HomeWidget {
 
               GestureDetector(
                 onTap: (){
-
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => VerNotificacaoPage())
+                  );
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width/1.3,

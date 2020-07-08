@@ -1,4 +1,7 @@
+import 'package:alertadefesacivil/agente/criarNotificacao/criarNotificacao_functions.dart';
 import 'package:alertadefesacivil/agente/login/login_functions.dart';
+import 'package:alertadefesacivil/agente/solicitacoes/solicitacoes_functions.dart';
+import 'package:alertadefesacivil/agente/verNotificacao/verNotificacao_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +18,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ///FUNCTIONS
         Provider<LoginFunctions>(create: (_) => LoginFunctions(context),),
+        Provider<CriarNotificacaoFunctions>(create: (_) => CriarNotificacaoFunctions(context),),
+        Provider<VerNotificacaoFunctions>(create: (_) => VerNotificacaoFunctions(context),),
+        Provider<SolicitacoesFunctions>(create: (_) => SolicitacoesFunctions(context),),
+
+        /// STORE
         Provider<LoginStore>(create: (_) => LoginStore(),),
       ],
         child: MaterialApp(

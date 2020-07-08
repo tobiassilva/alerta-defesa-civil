@@ -1,4 +1,5 @@
 import 'package:alertadefesacivil/agente/home_agente/agente_page.dart';
+import 'package:alertadefesacivil/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -68,7 +69,7 @@ class LoginWidget {
           ),
 
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               FlatButton(
                 onPressed: (){
@@ -76,6 +77,21 @@ class LoginWidget {
                 },
                 child: Text(
                   'CRIAR CONTA',
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: StyleGlobals().sizeText
+                  ),
+                ),
+              ),
+
+              FlatButton(
+                onPressed: (){
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomePage())
+                  );
+                },
+                child: Text(
+                  'SAIR',
                   style: TextStyle(
                       color: Colors.white70,
                       fontSize: StyleGlobals().sizeText
@@ -244,23 +260,29 @@ class LoginWidget {
       padding: EdgeInsets.all(0),
       onPressed: () async {
         print('AAAAAAAAA');
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => AgentePage())
-        );
-        if(!loginStore.carregando){
-          loginStore.setCarregando();///TODO: COLOCAR DE VOLTA ESSAS PORRA
-          if(loginStore.validaEmail(loginStore.email)){
-            if(loginStore.senha.length > 0){
-              /*await loginFunctions.logarEmail(context).then((value){
+        /*Navigator.pushReplacement(
+          context,
+          new MaterialPageRoute(
+            builder: (context) => new AgentePage(),
+            settings: RouteSettings(name: 'Agente Page'),
+          ),
+        );*/
 
+        if(!loginStore.carregando){
+          loginStore.setCarregando();
+          if(loginStore.validaEmail(loginStore.email) || loginStore.senha.length > 0){
+
+              await loginFunctions.login().then((value){
+
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => AgentePage())
+                );
               }).catchError((e){
                 loginFunctions.scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Usuário não encontrado :(')));
-              });*/
-            } else {
-              loginFunctions.scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Ops! Não esqueça da senha')));
-            }
+              });
+
           } else {
-            loginFunctions.scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Ops! Esse email não é válido')));
+            loginFunctions.scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Ops! email ou senha invalido')));
           }
           loginStore.setCarregando();
         }
