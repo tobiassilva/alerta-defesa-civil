@@ -97,6 +97,10 @@ class VerNotificacaoWidget {
               DateFormat formatjson = new DateFormat('yyyy-MM-dd');
 
               var hora = data[1].split(':');
+              int hora1 = int.parse(hora[0]) -3;
+              if(hora1 < 0){
+                hora1 = 24 + hora1;
+              }
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -105,7 +109,7 @@ class VerNotificacaoWidget {
                       alertVerNotificacao(listaNotif[index]['title'], listaNotif[index]['description']);
                     },
                     child: Container(
-                      height: 150,
+                      //height: 160,
                       margin: EdgeInsets.only(top: 15, bottom: 15),
                       padding: EdgeInsets.only(top: 12, bottom: 12, left: 10, right: 10),
                       width: MediaQuery.of(context).size.width/1.2,
@@ -144,76 +148,71 @@ class VerNotificacaoWidget {
                           Expanded(
                             child: Column(
                               children: <Widget>[
-                                Expanded(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      Flexible(
-                                        child: Column(
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Flexible(
+                                      child: Column(
 
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              '${listaNotif[index]['title']}',
-                                              textAlign: TextAlign.start,
-                                              style: TextStyle(
-                                                fontSize: StyleGlobals().sizeTitulo,
-                                                color: StyleGlobals().textColorForte,
-                                              ),
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            '${listaNotif[index]['title']}',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: StyleGlobals().sizeTitulo-2,
+                                              color: StyleGlobals().textColorForte,
+                                            ),
 
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            f.format(formatjson.parse(data[0])),
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: StyleGlobals().sizeTextMedio,
+                                              color: StyleGlobals().textColorMedio,
                                             ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Text(
-                                              f.format(formatjson.parse(data[0])),
-                                              textAlign: TextAlign.start,
-                                              style: TextStyle(
-                                                fontSize: StyleGlobals().sizeTextMedio,
-                                                color: StyleGlobals().textColorMedio,
-                                              ),
 
-                                            ),
-                                            RichText(
-                                              textAlign: TextAlign.start,
-                                              text: TextSpan(
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: '${int.parse(hora[0]) -3}',
-                                                    style: TextStyle(
-                                                      fontSize: StyleGlobals().sizeTextMedio,
-                                                      color: StyleGlobals().textColorMedio,
-                                                    ),
+                                          ),
+                                          RichText(
+                                            textAlign: TextAlign.start,
+                                            text: TextSpan(
+                                              children: <TextSpan>[
+                                                TextSpan(
+                                                  text: '${hora1}',
+                                                  style: TextStyle(
+                                                    fontSize: StyleGlobals().sizeTextMedio,
+                                                    color: StyleGlobals().textColorMedio,
                                                   ),
-                                                  TextSpan(
-                                                    text: ':',
-                                                    style: TextStyle(
-                                                      fontSize: StyleGlobals().sizeTextMedio,
-                                                      color: StyleGlobals().textColorMedio,
-                                                    ),
+                                                ),
+                                                TextSpan(
+                                                  text: ':',
+                                                  style: TextStyle(
+                                                    fontSize: StyleGlobals().sizeTextMedio,
+                                                    color: StyleGlobals().textColorMedio,
                                                   ),
-                                                  TextSpan(
-                                                    text: '${hora[1]}',
-                                                    style: TextStyle(
-                                                      fontSize: StyleGlobals().sizeTextMedio,
-                                                      color: StyleGlobals().textColorMedio,
-                                                    ),
+                                                ),
+                                                TextSpan(
+                                                  text: '${hora[1]}',
+                                                  style: TextStyle(
+                                                    fontSize: StyleGlobals().sizeTextMedio,
+                                                    color: StyleGlobals().textColorMedio,
                                                   ),
+                                                ),
 
-                                                ],
-                                              ),
+                                              ],
                                             ),
+                                          ),
 
-                                          ],
-                                        ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
 
-                                SizedBox(
-                                  height: 15,
-                                ),
 
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
