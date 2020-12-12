@@ -38,7 +38,7 @@ cidadãos cadastrados via APP sobre alertas, educativas e institucional, etc.</p
 <br>
 
 > Notificações/Solicitações
-> Notificações podem ser acessadas por qualquer usuário
+> Notificações podem ser acessadas por qualquer usuário <br>
 > Solicitações são geradas a partir da tentativa de cadastro de um novo agente. Elas são vistas apenas pelo administrador que pode aceitar/recusar o cadastro do novo agente
 
 <div style="display: inline-block">
