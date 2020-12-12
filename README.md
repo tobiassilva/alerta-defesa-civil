@@ -15,7 +15,7 @@ cidadãos cadastrados via APP sobre alertas, educativas e institucional, etc.</p
 > Home
 
 <div style="display: inline-block">
-<img src="/assets/images/telas/home_admin.jpeg" height="350">
+<img src="/assets/images/telas/home_adm.jpeg" height="350">
 </div>
 
 <br>
